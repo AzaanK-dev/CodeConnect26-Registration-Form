@@ -78,6 +78,18 @@ header.hero {
     letter-spacing: .04em;
 }
 
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-icon {
+    width: 90px;
+    height: 100%;
+    object-fit: cover;
+}
+
 .eyebrow {
     font-size: 12px;
     letter-spacing: .14em;
@@ -208,6 +220,12 @@ header.hero {
     .modules {
         grid-template-columns: 1fr;
     }
+
+    .logo-icon {
+        width: 60px;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .module-opt {
@@ -319,9 +337,9 @@ input.invalid {
 @media(max-width:480px) {
     .logo-row {
         gap: 6px;
-    
+
     }
-    
+
     .logo-div {
         background: grey;
         width: 0px;
