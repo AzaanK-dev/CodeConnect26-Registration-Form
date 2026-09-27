@@ -240,10 +240,6 @@ form.addEventListener('submit', async (e) => {
         if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
-    if (!SCRIPT_URL) {
-        showStatus('Form not connected yet — set SCRIPT_URL in the code to your Apps Script Web App URL.', false);
-        return;
-    }
     const data = collectData();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
@@ -255,7 +251,7 @@ form.addEventListener('submit', async (e) => {
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                 body: JSON.stringify(data)
             });
-            showStatus('Registration submitted! Check your email/WhatsApp for confirmation and next steps.', true);
+            showStatus('Registration submitted successfully! Shortlisted teams will be contacted via email/WhatsApp with further details.', true);
             form.reset();
             document.querySelectorAll('.module-opt').forEach(o => o.classList.remove('selected'));
             document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
@@ -268,7 +264,7 @@ form.addEventListener('submit', async (e) => {
             if (!retry) {
                 await attemptSubmit(true);
             } else {
-                showStatus('Network error — your registration was not sent. Please check your connection and try again.', false);
+                showStatus('Please check your connection and try again.', false);
             }
         } finally {
             submitBtn.disabled = false;
